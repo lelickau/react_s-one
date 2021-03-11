@@ -1,0 +1,22 @@
+.nav {
+    padding: 20px;
+    min-width: 250px;
+    height: 100vh;
+    background-color: #FFE2E2;
+    margin-right: 5px;
+  }
+  
+  .nav__item {
+    cursor: pointer;
+    font-size: 20px;
+    font-weight: 700;
+    margin-top: 5px;
+  }
+  
+  .nav__item:hover {
+    text-decoration: #E23E57 underline;
+  }
+  
+  .nav__item:last-child {
+    margin-top: 40px;
+  }

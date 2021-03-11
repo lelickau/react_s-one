@@ -1,0 +1,15 @@
+*{
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  color: #3E4149;
+}
+.container {
+  max-width: 1260px;
+  margin: 0 auto;
+}
+
+.main {
+  display: flex;
+}
