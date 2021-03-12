@@ -4,6 +4,7 @@
   padding: 0;
   box-sizing: border-box;
   color: #3E4149;
+  text-decoration: none;
 }
 .container {
   max-width: 1260px;
@@ -12,4 +13,8 @@
 
 .main {
   display: flex;
+}
+a.active_link {
+  color: brown;
+  text-decoration: grey underline;
 }
