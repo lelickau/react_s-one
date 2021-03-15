@@ -1,0 +1,9 @@
+.dialog__item {
+    width: 100%;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: gray 2px solid;
+    margin-bottom: 10px;
+}

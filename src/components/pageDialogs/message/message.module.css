@@ -1,0 +1,10 @@
+.message__item {
+    width: 350px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: gray 2px solid;
+    border-radius: 50px;
+    padding: 10px;
+    margin-bottom: 15px;
+}

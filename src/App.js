@@ -11,18 +11,19 @@ import PageSettings from './components/pageSettings/pageSettings';
 
 
 
-const App = () => {
+const App = (props) => {
+	console.log(props);
 	return (
 		<BrowserRouter>
 		<div className="container">
 			<Header/>
 			<main className="main">
 				<NavBar/>
-				<Route path="/pageProfile" component={PageProfile}/>
-				<Route path="/pageDialogs" component={PageDialogs}/>
-				<Route path="/pageMusic" component={PageMusic}/>
-				<Route path="/pageNews" component={PageNews}/>
-				<Route path="/pageSettings" component={PageSettings}/>
+				<Route path="/pageProfile" render={ () => <PageProfile posts={props.propsPost.posts}/>}/>
+				<Route path="/pageDialogs" render={ () => <PageDialogs dialogs={props.propsPost.dialogs} messages={props.propsPost.messages}/>}/>
+				<Route path="/pageMusic" render={ () => <PageMusic/>}/>
+				<Route path="/pageNews" render={ () => <PageNews/>}/>
+				<Route path="/pageSettings" render={ () => <PageSettings/>}/>
 			</main>
 			
 		</div>
