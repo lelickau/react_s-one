@@ -18,9 +18,9 @@ const App = (props) => {
 		<div className="container">
 			<Header/>
 			<main className="main">
-				<NavBar/>
-				<Route path="/pageProfile" render={ () => <PageProfile posts={props.propsPost.posts}/>}/>
-				<Route path="/pageDialogs" render={ () => <PageDialogs dialogs={props.propsPost.dialogs} messages={props.propsPost.messages}/>}/>
+				<NavBar link={props.state.navBarList}/>
+				<Route path="/pageProfile" render={ () => <PageProfile posts={props.state.pageProfile}/>}/>
+				<Route path="/pageDialogs" render={ () => <PageDialogs state={props.state.pageDialogs}/>}/>
 				<Route path="/pageMusic" render={ () => <PageMusic/>}/>
 				<Route path="/pageNews" render={ () => <PageNews/>}/>
 				<Route path="/pageSettings" render={ () => <PageSettings/>}/>

@@ -1,28 +1,20 @@
 import React from 'react';
 import style from './navBar.module.css';
-import {NavLink} from 'react-router-dom';
+import NavBarLink from './navBarLink/navBarLink';
 
-const NavBar = () => {
+
+
+const NavBar = (props) => {
+	console.log(props);
+
+	let navBarElement = props.link
+        .map( link => <NavBarLink link={link.link} href={link.href}/> );
 	return (
-		<nav className={style.nav}>
+		<div className={style.nav}>
 				<ul className={style.nav__list}>
-					<li className={style.nav__item}>
-						<NavLink to="/pageProfile" activeClassName='active_link'>Profile</NavLink>
-					</li>
-					<li className={style.nav__item}>
-						<NavLink to="/pageDialogs" activeClassName='active_link'>Messages</NavLink>
-					</li>
-					<li className={style.nav__item}>
-						<NavLink to="/pageNews" activeClassName='active_link'>News</NavLink>
-					</li>
-					<li className={style.nav__item}>
-						<NavLink to="/pageMusic" activeClassName='active_link'>Music</NavLink>
-					</li>
-					<li className={style.nav__item}>
-						<NavLink to="/pageSettings" activeClassName='active_link'>Settings</NavLink>
-					</li>
+					{navBarElement}
 				</ul>
-			</nav>
+			</div>
 	)
 }
 
