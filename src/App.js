@@ -19,11 +19,13 @@ const App = (props) => {
 			<Header/>
 			<main className="main">
 				<NavBar link={props.state.navBarList}/>
-				<Route path="/pageProfile" render={ () => <PageProfile posts={props.state.pageProfile}/>}/>
-				<Route path="/pageDialogs" render={ () => <PageDialogs state={props.state.pageDialogs}/>}/>
-				<Route path="/pageMusic" render={ () => <PageMusic/>}/>
-				<Route path="/pageNews" render={ () => <PageNews/>}/>
-				<Route path="/pageSettings" render={ () => <PageSettings/>}/>
+				<div className="content__box">
+					<Route path="/pageProfile" render={ () => <PageProfile posts={props.state.pageProfile} addPost={props.addPost}/>}/>
+					<Route path="/pageDialogs" render={ () => <PageDialogs state={props.state.pageDialogs}/>}/>
+					<Route path="/pageMusic" render={ () => <PageMusic/>}/>
+					<Route path="/pageNews" render={ () => <PageNews/>}/>
+					<Route path="/pageSettings" render={ () => <PageSettings/>}/>
+				</div>
 			</main>
 			
 		</div>

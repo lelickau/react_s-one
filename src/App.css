@@ -10,6 +10,11 @@
   max-width: 1260px;
   margin: 0 auto;
 }
+.content__box {
+  width: 100%;
+  margin-left: 260px;
+  margin-top: 80px;
+}
 
 .main {
   display: flex;

@@ -1,4 +1,4 @@
-
+import {rendedEntireThree} from './../render';
 let state = {
     pageProfile: {
         posts: [
@@ -35,5 +35,17 @@ let state = {
     ],
     
 }
+
+export let addPost = (textPost) => {
+    let newPost = {
+        post: textPost, 
+        id: 1, 
+        likesCount: 0,
+    };
+
+    state.pageProfile.posts.push(newPost);
+    rendedEntireThree(state);
+}
+
 
 export default state;

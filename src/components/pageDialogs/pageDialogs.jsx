@@ -12,7 +12,14 @@ const PageDialogs = (props) => {
     let messagesElement = props.state.messages
         .map( m => <Message text={m.message}/> );
 
+    let newMessageItem = React.createRef();
+    let addMessage = () => {
+        let text = newMessageItem.current.value;
+        alert(text);
+    }
+
     return (
+        <>
         <div className={style.wrapper}>
             <div className={style.dialogs__box}>
                 {dialogsElement}
@@ -20,9 +27,16 @@ const PageDialogs = (props) => {
             </div>
             <div className={style.messages__box}>
                 {messagesElement}
-                
+                <form className={style.form}>
+                    <label>
+                        <h3>Text..</h3>
+                        <input ref={newMessageItem} className={style.input__post} type="text" name="post" placeholder='your message'/>
+                    </label>
+                    <button onClick={addMessage} className={style.btn__post}>Add</button>
+                </form>
             </div>
         </div>
+        </>
     )
 }
 
