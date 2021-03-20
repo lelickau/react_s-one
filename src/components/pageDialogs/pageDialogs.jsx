@@ -13,10 +13,15 @@ const PageDialogs = (props) => {
         .map( m => <Message text={m.message}/> );
 
     let newMessageItem = React.createRef();
-    let addMessage = () => {
+    let addMessage = (e) => {
+        e.preventDefault();
         let text = newMessageItem.current.value;
-        alert(text);
+        props.addMessage(text);
     }
+    let onMessageChange = () => {
+		let message = newMessageItem.current.value;
+		props.updateNewMessage(message);
+	}
 
     return (
         <>
@@ -30,7 +35,15 @@ const PageDialogs = (props) => {
                 <form className={style.form}>
                     <label>
                         <h3>Text..</h3>
-                        <input ref={newMessageItem} className={style.input__post} type="text" name="post" placeholder='your message'/>
+                        <input 
+                            ref={newMessageItem} 
+                            className={style.input__post} 
+                            type="text" 
+                            name="post" 
+                            placeholder='your message'
+                            value={props.state.newMessageText}
+                            onChange={onMessageChange}
+                            />
                     </label>
                     <button onClick={addMessage} className={style.btn__post}>Add</button>
                 </form>

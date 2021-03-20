@@ -20,8 +20,19 @@ const App = (props) => {
 			<main className="main">
 				<NavBar link={props.state.navBarList}/>
 				<div className="content__box">
-					<Route path="/pageProfile" render={ () => <PageProfile posts={props.state.pageProfile} addPost={props.addPost}/>}/>
-					<Route path="/pageDialogs" render={ () => <PageDialogs state={props.state.pageDialogs}/>}/>
+					<Route path="/pageProfile" 
+						render={ () => <PageProfile 
+							posts={props.state.pageProfile} 
+							addPost={props.addPost}
+							newPostText={props.state.pageProfile.newPostText}
+							updateNewPost={props.updateNewPost}
+							/>}/>
+					<Route path="/pageDialogs" 
+						render={ () => <PageDialogs 
+							state={props.state.pageDialogs}
+							addMessage={props.addMessage}
+							updateNewMessage={props.updateNewMessage}
+							/>}/>
 					<Route path="/pageMusic" render={ () => <PageMusic/>}/>
 					<Route path="/pageNews" render={ () => <PageNews/>}/>
 					<Route path="/pageSettings" render={ () => <PageSettings/>}/>

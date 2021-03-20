@@ -13,7 +13,10 @@ const PageProfile = (props) => {
         <div>
 			<Banner/>
 			<Profile/>
-			<Posts addPost={props.addPost}/>
+			<Posts newPostText={props.newPostText} 
+					addPost={props.addPost}
+					updateNewPost={props.updateNewPost}
+					/>
 			{postsItoms}
 		</div>
     )

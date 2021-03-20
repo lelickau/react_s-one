@@ -1,4 +1,9 @@
-import {rendedEntireThree} from './../render';
+let rendedEntireThree = () => {}
+
+export const subscribe = (observer) => {
+    rendedEntireThree = observer;
+}
+
 let state = {
     pageProfile: {
         posts: [
@@ -7,6 +12,7 @@ let state = {
             {post:'hi Tom What do you do?' , id:3, likesCount: 500},
             {post:'hi Tom I am fine' , id:4, likesCount: 333},
         ],
+        newPostText: '',
     },
     
     pageDialogs: {
@@ -24,6 +30,7 @@ let state = {
             {name:'Megan' , id:4},
             {name:'Nikoly' , id:5},
         ],
+        newMessageText: '',
     },
 
     navBarList: [
@@ -36,16 +43,41 @@ let state = {
     
 }
 
-export let addPost = (textPost) => {
+export const addMessage = () => {
+    let newMessage = {
+        message: state.pageDialogs.newMessageText, 
+        id: 1, 
+    };
+
+    state.pageDialogs.messages.push(newMessage);
+    state.pageDialogs.newMessageText = '';
+    rendedEntireThree(state);
+}
+
+export const updateNewMessage = (newMessage) => {
+
+    state.pageDialogs.newMessageText = newMessage;
+    rendedEntireThree(state);
+}
+
+//
+
+export const addPost = () => {
     let newPost = {
-        post: textPost, 
+        post: state.pageProfile.newPostText, 
         id: 1, 
         likesCount: 0,
     };
 
     state.pageProfile.posts.push(newPost);
+    state.pageProfile.newPostText = '';
     rendedEntireThree(state);
 }
 
+export const updateNewPost = (newText) => {
+
+    state.pageProfile.newPostText = newText;
+    rendedEntireThree(state);
+}
 
 export default state;
