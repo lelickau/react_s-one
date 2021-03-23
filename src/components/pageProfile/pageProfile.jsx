@@ -14,8 +14,7 @@ const PageProfile = (props) => {
 			<Banner/>
 			<Profile/>
 			<Posts newPostText={props.newPostText} 
-					addPost={props.addPost}
-					updateNewPost={props.updateNewPost}
+					dispatch={props.dispatch}
 					/>
 			{postsItoms}
 		</div>
