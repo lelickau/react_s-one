@@ -25,3 +25,7 @@ HTML+CSS доработка pageDialogs.
 
 Рефакторинг redux/state.js. Обертка store.
 
+### 23.03.21 v1.6
+
+dispatch / action creater / action type
+Рефакторинг redux/state.js = создание dispatch (ADD_POST, ADD_MESSAGE, UPDATE_NEW_POST, UPDATE_NEW_MESSAGE) с протяжкой

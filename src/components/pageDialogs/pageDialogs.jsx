@@ -2,7 +2,7 @@ import React from 'react';
 import style from './pageDialogs.module.css';
 import DialogItem from './dialogItem/dialogItem';
 import Message from './message/message';
-import {addMessageActionCreater, updateNewMessageActionCreater} from '../../redux/state';
+import {addMessageActionCreater, updateNewMessageActionCreater} from '../../redux/dialogsReducer';
 
 const PageDialogs = (props) => {
     console.log(props);
