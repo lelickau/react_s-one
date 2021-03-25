@@ -1,6 +1,7 @@
 .post__box {
     display: flex;
     align-items: center;
+    
 }
 .avatar__box img {
     width: 70px;

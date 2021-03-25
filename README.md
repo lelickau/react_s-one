@@ -29,3 +29,5 @@ HTML+CSS доработка pageDialogs.
 
 dispatch / action creater / action type
 Рефакторинг redux/state.js = создание dispatch (ADD_POST, ADD_MESSAGE, UPDATE_NEW_POST, UPDATE_NEW_MESSAGE) с протяжкой
+
+reducer (почти redux) создание отдельных файлов reducer для (ADD_POST, ADD_MESSAGE, UPDATE_NEW_POST, UPDATE_NEW_MESSAGE)
