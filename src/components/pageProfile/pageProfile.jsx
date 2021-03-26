@@ -1,22 +1,18 @@
 import React from 'react';
 import Banner from './banner/banner';
 import Profile from './profile/profile';
-import Posts from './posts/posts';
-import Post from './post/post';
+import PostsWrapper from './posts/postsWrapper';
 
 
 const PageProfile = (props) => {
 	console.log(props);
-	let postsItoms = props.posts.posts.map(p => <Post text={p.post} like={p.likesCount}/>);
+	
 
     return (
         <div>
 			<Banner/>
 			<Profile/>
-			<Posts newPostText={props.newPostText} 
-					dispatch={props.dispatch}
-					/>
-			{postsItoms}
+			<PostsWrapper/>
 		</div>
     )
 }

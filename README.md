@@ -31,3 +31,13 @@ dispatch / action creater / action type
 Рефакторинг redux/state.js = создание dispatch (ADD_POST, ADD_MESSAGE, UPDATE_NEW_POST, UPDATE_NEW_MESSAGE) с протяжкой
 
 reducer (почти redux) создание отдельных файлов reducer для (ADD_POST, ADD_MESSAGE, UPDATE_NEW_POST, UPDATE_NEW_MESSAGE)
+
+### 25.03.21 v1.7
+
+Внедрение reducer функция которая отвечать за обновление состояния
+
+### 26.03.21 v1.8
+
+redux
+container components
+context API

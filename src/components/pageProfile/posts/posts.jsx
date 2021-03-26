@@ -1,20 +1,21 @@
 import React from 'react';
 import style from'./posts.module.css';
-import {addPostActionCreater, updateNewPostActionCreater} from '../../../redux/profileReducer';
+import Post from '../post/post';
 
 
 const Posts = (props) => {
-	console.log(props);
+	//console.log(props);
+	let postsItoms = props.posts.posts.map(p => <Post text={p.post} like={p.likesCount}/>);
 	let newPostElement = React.createRef();
 
 	let addPost = (e) => {
 		e.preventDefault();
-		props.dispatch(addPostActionCreater());
+		props.addPost();
 	};
 
 	let onPostChange = () => {
 		let text = newPostElement.current.value;
-		props.dispatch(updateNewPostActionCreater(text));
+		props.updateNewPosts(text);
 	}
 
 	return (
@@ -26,6 +27,7 @@ const Posts = (props) => {
 							</label>
 							<button onClick={addPost} className={style.btn__post}>Send</button>
 						</form>
+						{postsItoms}
 					</div>
 	)
 }

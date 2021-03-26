@@ -5,7 +5,7 @@ import NavBarLink from './navBarLink/navBarLink';
 
 
 const NavBar = (props) => {
-	console.log(props);
+	//console.log(props);
 
 	let navBarElement = props.link
         .map( link => <NavBarLink link={link.link} href={link.href}/> );

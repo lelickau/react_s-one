@@ -2,10 +2,9 @@ import React from 'react';
 import style from './pageDialogs.module.css';
 import DialogItem from './dialogItem/dialogItem';
 import Message from './message/message';
-import {addMessageActionCreater, updateNewMessageActionCreater} from '../../redux/dialogsReducer';
 
 const PageDialogs = (props) => {
-    console.log(props);
+    //console.log(props);
 
     let dialogsElement = props.state.dialogs
         .map( d => <DialogItem name={d.name} id={d.id}/> );
@@ -17,11 +16,11 @@ const PageDialogs = (props) => {
 
     let addMessage = (e) => {
         e.preventDefault();
-        props.dispatch(addMessageActionCreater());
+        props.addMessage();
     }
     let onMessageChange = () => {
 		let message = newMessageItem.current.value;
-		props.dispatch(updateNewMessageActionCreater(message));
+		props.updateNewMessage(message);
 	}
 
     return (
