@@ -1,35 +1,24 @@
-import React from 'react';
+import { connect } from 'react-redux';
 import {addPostActionCreater, updateNewPostActionCreater} from '../../../redux/profileReducer';
-import StoreContext from '../../../storeContext';
 import Posts from './posts';
 
 
-const PostsWrapper = (props) => {
-	//console.log(props);
-	
-
-	return (
-		<StoreContext.Consumer> 
-		{(store) => {
-			let state = store.getState();
-			let posts = state.pageProfile;
-			let newPostText = state.pageProfile.newPostText;
-			let addPost = (e) => {
-				store.dispatch(addPostActionCreater());
-			};
-
-			let onPostChange = (text) => {
-				store.dispatch(updateNewPostActionCreater(text));
-			}
-			return <Posts
-				posts={posts}
-				updateNewPosts={onPostChange}
-				addPost={addPost}
-				newPostText={newPostText}
-			/>
-		}}
-		</StoreContext.Consumer>
-	)
+let mapStateToProps = (state) => {
+	return {
+		posts: state.pageProfile,
+		newPostText: state.pageProfile.newPostText,
+	}
 }
+let mapDispatchToProps = (dispatch) => {
+	return {
+		updateNewPosts: (text) => {
+			dispatch(updateNewPostActionCreater(text));
+		},
+		addPost: () => {
+			dispatch(addPostActionCreater());
+		},
+	}
+}
+const PostsWrapper = connect(mapStateToProps, mapDispatchToProps)(Posts);
 
 export default PostsWrapper;

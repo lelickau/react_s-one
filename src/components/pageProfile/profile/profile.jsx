@@ -6,7 +6,7 @@ const Profile = () => {
 	return (
 		<div className={style.content}>
 						<div className={style.avatar__box}>
-							<img src={avatar} className="avatar"/>
+							<img alt='avatar' src={avatar} className="avatar"/>
 						</div>
 						<div className={style.about__box}>
 							<h2>Elena Kau</h2>
