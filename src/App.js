@@ -8,6 +8,7 @@ import PageNews from './components/pageNews/pageNews';
 import PageSettings from './components/pageSettings/pageSettings';
 import PageDialogsWrapper from './components/pageDialogs/pageDialogsWrapper';
 import NavBarWrapper from './components/navBar/navBarWrapper';
+import UsersWrapper from './components/pageUsers/usersWrapper';
 
 
 
@@ -29,6 +30,7 @@ const App = (props) => {
 						<PageDialogsWrapper/>}/>
 					<Route path="/pageMusic" render={ () => <PageMusic/>}/>
 					<Route path="/pageNews" render={ () => <PageNews/>}/>
+					<Route path="/pageUsers" render={ () => <UsersWrapper/>}/>
 					<Route path="/pageSettings" render={ () => <PageSettings/>}/>
 				</div>
 			</main>

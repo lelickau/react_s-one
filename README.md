@@ -42,10 +42,12 @@ redux
 container components
 context API
 
-### 27.03.21 v1.9
+### 27.03.21 v1.8
 
 Подключение react-redux
 Рефакторинг postsWrapper, pageDialogsWrapper - под react-redux.
 Создание обертки для navBar [navBarWrapper] - адаптировано под react-redux.
 Копии состояния в dialogsReducer, profileReducer.
+
+### 28.03.21 
 

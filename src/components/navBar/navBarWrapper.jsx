@@ -7,6 +7,6 @@ let mapStateToProps = (state) => {
 		link: state.navBarList,
 	}
 }
-const NavBarWrapper = connect(mapStateToProps)(NavBar)
+const NavBarWrapper = connect(mapStateToProps)(NavBar);
 
 export default NavBarWrapper;

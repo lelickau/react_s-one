@@ -1,0 +1,14 @@
+.users__wrapper {
+    display: flex;
+    flex-direction: column;
+}
+.btn {
+    display: block;
+    width: 100px;
+    height: 30px;
+    background-color: #62D2A2;
+    border: none;
+    color: #F6F6f6;
+    font-size: 18px;
+    cursor: pointer;
+}
