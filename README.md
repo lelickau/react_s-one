@@ -49,5 +49,12 @@ context API
 Создание обертки для navBar [navBarWrapper] - адаптировано под react-redux.
 Копии состояния в dialogsReducer, profileReducer.
 
-### 28.03.21 
+### 28.03.21 v1.9 
+
+Новая страница пользователей [pageUsers]
+
+### 29.03.21 v1.10
+
+rest api для страницы [pageUsers] / классовый компонент (extends React.Component)
+
 
