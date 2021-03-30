@@ -1,4 +1,5 @@
 import React from 'react';
+import './components/FortawesomeIcons';
 import './App.css';
 import Header from './components/header/header';
 import PageProfile from './components/pageProfile/pageProfile';

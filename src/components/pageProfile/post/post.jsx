@@ -1,6 +1,7 @@
 import React from 'react';
 import avatar from './avatar.jpg';
 import style from './post.module.css';
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 
 const Post = (props) => {
     return (
@@ -10,7 +11,7 @@ const Post = (props) => {
             </div>
             <p>{props.text}</p>
             <div className={style.like}>
-                &#10084;
+                <FontAwesomeIcon icon='heart'/>
                 <span>{props.like}</span>
             </div>
         </div>

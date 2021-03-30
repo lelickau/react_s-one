@@ -1,14 +1,20 @@
 .nav__item {
     cursor: pointer;
     font-size: 20px;
-    font-weight: 700;
     margin-top: 5px;
+    padding: 5px 10px 5px 10px;
+    display: flex;
+    
   }
-  
   .nav__item:hover {
-    text-decoration: #E23E57 underline;
+    background-color: #546585;
+    box-shadow: inset -1px -1px 20px 7px #3f4d67;
   }
   
   .nav__item:last-child {
     margin-top: 40px;
+  }
+
+  .icon__box {
+    width: 35px;
   }
