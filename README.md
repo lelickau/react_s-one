@@ -63,4 +63,10 @@ componentDidMount -- Эта функция будет вызвана лишь р
 Постраничный вывод пользователей.
 Обновление дизайна.
 
+### 31.03.21 v1.12
+
+Добавление Preloader [components/common/preloader].
+Рефакторин mapDispatchToProps [usersWrapper].
+
+
 

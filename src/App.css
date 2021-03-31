@@ -33,3 +33,7 @@ a.active_link {
   color: #1dc4e9;
   font-weight: 500;
 }
+
+.preloader__box {
+  text-align: center;
+}

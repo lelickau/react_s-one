@@ -33,6 +33,7 @@
 ,#899fd4,#a389d4);
 }
 .user {
+    background-color: #fff;
     width: 600px;
     display: flex;
     align-items: center;
@@ -74,8 +75,8 @@
     width: 400px;
     background-color: rgb(233 240 255);
     -webkit-box-shadow: 1px 0px 8px 0px rgba(58, 121, 135, 0.2);
--moz-box-shadow: 1px 0px 8px 0px rgba(58, 121, 135, 0.2);
-box-shadow: 1px 0px 8px 0px rgba(58, 121, 135, 0.2);
+-moz-box-shadow: 1px 0px 8px 0px rgba(48, 71, 77, 0.2);
+box-shadow: 1px 0px 8px 0px rgba(31, 47, 51, 0.2);
 }
 
 .active__page {

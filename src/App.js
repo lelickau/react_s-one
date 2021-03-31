@@ -2,7 +2,7 @@ import React from 'react';
 import './components/FortawesomeIcons';
 import './App.css';
 import Header from './components/header/header';
-import PageProfile from './components/pageProfile/pageProfile';
+import PageProfileWrapper from './components/pageProfile/pageProfileWrapper';
 import {BrowserRouter, Route} from 'react-router-dom';
 import PageMusic from './components/pageMusic/pageMusic';
 import PageNews from './components/pageNews/pageNews';
@@ -25,7 +25,7 @@ const App = (props) => {
 				<div className="content__box">
 					<Route path="/pageProfile" 
 						render={ () => 
-						<PageProfile />}/>
+						<PageProfileWrapper />}/>
 					<Route path="/pageDialogs" 
 						render={ () => 
 						<PageDialogsWrapper/>}/>

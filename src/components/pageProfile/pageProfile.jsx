@@ -11,7 +11,7 @@ const PageProfile = (props) => {
     return (
         <div>
 			<Banner/>
-			<Profile/>
+			<Profile profile={props.profile}/>
 			<PostsWrapper/>
 		</div>
     )
