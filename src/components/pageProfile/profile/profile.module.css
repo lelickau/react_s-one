@@ -26,3 +26,12 @@
 .about__box h2 {
   margin-bottom: 20px;
 }
+
+.icon__box {
+  display: block;
+  width: 30px;
+}
+.about__itom {
+  display: flex;
+  margin-right: 5px;
+}

@@ -68,5 +68,9 @@ componentDidMount -- Эта функция будет вызвана лишь р
 Добавление Preloader [components/common/preloader].
 Рефакторин mapDispatchToProps [usersWrapper].
 
+### 01.04.21 v1.13
 
+Изменение [pageProfile] 
+withRouter - компонента высшего порядка [pageProfileWrapper]
+Добавлена авторизация [header]
 

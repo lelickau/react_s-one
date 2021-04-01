@@ -1,7 +1,7 @@
 import React from 'react';
 import './components/FortawesomeIcons';
 import './App.css';
-import Header from './components/header/header';
+import HeaderWrapper from './components/header/headerWrapper';
 import PageProfileWrapper from './components/pageProfile/pageProfileWrapper';
 import {BrowserRouter, Route} from 'react-router-dom';
 import PageMusic from './components/pageMusic/pageMusic';
@@ -19,11 +19,11 @@ const App = (props) => {
 	return (
 		<BrowserRouter>
 		<div className="container">
-			<Header/>
+			<HeaderWrapper/>
 			<main className="main">
 			<NavBarWrapper/>
 				<div className="content__box">
-					<Route path="/pageProfile" 
+					<Route path="/pageProfile/:userId?" 
 						render={ () => 
 						<PageProfileWrapper />}/>
 					<Route path="/pageDialogs" 

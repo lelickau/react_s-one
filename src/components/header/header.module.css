@@ -1,17 +1,31 @@
 .header {
   min-width: 250px;
-    height: 80px;
+    height: 100px;
     position: fixed;
     display: flex;
-    align-items: center;
-    justify-content: center;
+    flex-direction: column;
+    
     background-color: #3f4d67;
     box-shadow: 1px 0 20px 0 #3f4d67;
     color: #fff;
     font-size: 21px;
     font-weight: 700;
   }
-  
+  .logo__box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
   .logo {
     width: 50px;
+  }
+.login__link {
+  margin-top: 10px;
+  margin-left: 10px;
+}
+  .login__link a{
+    font-weight: 300;
+    font-size: 18px;
+    color: #fff;
   }
