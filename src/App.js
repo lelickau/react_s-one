@@ -10,6 +10,7 @@ import PageSettings from './components/pageSettings/pageSettings';
 import PageDialogsWrapper from './components/pageDialogs/pageDialogsWrapper';
 import NavBarWrapper from './components/navBar/navBarWrapper';
 import UsersWrapper from './components/pageUsers/usersWrapper';
+import PageLogin from './components/pageLogin/pageLogin';
 
 
 
@@ -23,16 +24,13 @@ const App = (props) => {
 			<main className="main">
 			<NavBarWrapper/>
 				<div className="content__box">
-					<Route path="/pageProfile/:userId?" 
-						render={ () => 
-						<PageProfileWrapper />}/>
-					<Route path="/pageDialogs" 
-						render={ () => 
-						<PageDialogsWrapper/>}/>
+					<Route path="/pageProfile/:userId?" render={ () => <PageProfileWrapper />}/>
+					<Route path="/pageDialogs" render={ () => <PageDialogsWrapper/>}/>
 					<Route path="/pageMusic" render={ () => <PageMusic/>}/>
 					<Route path="/pageNews" render={ () => <PageNews/>}/>
 					<Route path="/pageUsers" render={ () => <UsersWrapper/>}/>
 					<Route path="/pageSettings" render={ () => <PageSettings/>}/>
+					<Route path="/login" render={ () => <PageLogin/>}/>
 				</div>
 			</main>
 			

@@ -9,7 +9,7 @@ let PageUsers = (props) => {
         for(let i = 1; i <= pagesCount; i++) {
             pages.push(i);
         };
-    return <div>
+    return (<div>
 
             {
             props.users.map( user => 
@@ -22,7 +22,19 @@ let PageUsers = (props) => {
                                 <img alt='avatar' src={user.photos.small != null ? user.photos.small : avatar} className={style.avatar}/>
                             </NavLink>
                             </div>
-                            {user.followed ? <button onClick={()=>{props.unfollow(user.id)}} className={style.btn}>Unfollow</button> : <button onClick={()=>{props.follow(user.id)}} className={style.btn__active}>Follow</button>}
+                            {
+                                user.followed ? 
+                                <button 
+                                disabled={props.followingIsProgress.some(id => id === user.id)} 
+                                onClick={()=>{
+                                        props.setFollow(user.id);
+                                        
+                                }} className={style.btn}>Unfollow</button> : 
+                                <button disabled={props.followingIsProgress.some(id => id === user.id)} onClick={()=>{
+                                    props.setUnfollow(user.id);
+                                        
+                                }} className={style.btn__active}>Follow</button>
+                            }
                         </div>
                         <div className={style.info__box}>
                             <div>
@@ -46,7 +58,7 @@ let PageUsers = (props) => {
                     return (<span className={`${props.currentPage === page && style.active__page} ${style.pagination}`} onClick={(e) => {props.onPageChanged(page);}} >{page}</span>)
                 })}
             </div>
-        </div>
+        </div>)
         
 }
 

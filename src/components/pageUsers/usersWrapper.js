@@ -1,29 +1,17 @@
 import { connect } from 'react-redux';
 import React from 'react';
-import {follow, unfollow, setUsers, setCurrentPage, setTotalUsersCount, setFetching} from '../../redux/usersReducer';
+import {setCurrentPage, getUsers, setFollow, setUnfollow} from '../../redux/usersReducer';
 import PageUsers from './pageUsers';
-import * as axios from 'axios';
 import Preloader from '../common/preloader/preloader';
+
 
 class UsersContainer extends React.Component {
     componentDidMount(){
-        this.props.setFetching(true);
-        axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${this.props.currentPage}&count=${this.props.pageSize}`)
-            .then(response => {
-                this.props.setFetching(false);
-                this.props.setUsers(response.data.items);
-                this.props.setTotalUsersCount(response.data.totalCount);
-            });
+        this.props.getUsers(this.props.currentPage, this.props.pageSize);
     }
 
     onPageChanged = (pageNumber) => {
-        this.props.setFetching(true);
-        this.props.setCurrentPage(pageNumber);
-        axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${pageNumber}&count=${this.props.pageSize}`)
-            .then(response => {
-                this.props.setFetching(false);
-                this.props.setUsers(response.data.items);
-            });
+        this.props.getUsers(pageNumber, this.props.pageSize);
     }
 
     render(){
@@ -36,8 +24,9 @@ class UsersContainer extends React.Component {
                 currentPage={this.props.currentPage}
                 onPageChanged={this.onPageChanged}
                 users={this.props.users}
-                unfollow={this.props.unfollow}
-                follow={this.props.follow}
+                followingIsProgress={this.props.followingIsProgress}
+                setFollow={this.props.setFollow}
+                setUnfollow={this.props.setUnfollow}
             />
             
         </>
@@ -46,17 +35,18 @@ class UsersContainer extends React.Component {
 }
 
 let mapStateToProps = (state) => {
-    console.log(state);
+    //console.log(state);
     return {
         users: state.pageUsers.users,
         pageSize: state.pageUsers.pageSize,
         totalUsersCount: state.pageUsers.totalUsersCount,
         currentPage: state.pageUsers.currentPage,
         isFetching: state.pageUsers.isFetching,
+        followingIsProgress: state.pageUsers.followingIsProgress,
     }
 }
 
-export default connect(mapStateToProps, {follow, unfollow, setUsers, setCurrentPage, setTotalUsersCount, setFetching})(UsersContainer);
+export default connect(mapStateToProps, {setCurrentPage, getUsers, setFollow, setUnfollow})(UsersContainer);
 
 
 // let mapDispatchToProps = (dispatch) => {

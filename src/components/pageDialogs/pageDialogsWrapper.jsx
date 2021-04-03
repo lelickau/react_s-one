@@ -4,8 +4,10 @@ import PageDialogs from './pageDialogs';
 
 
 let mapStateToProps = (state) => {
+    //console.log(state);
     return {
         state: state.pageDialogs,
+        isAuth: state.auth.isAuth,
     }
 }
 let mapDispatchToProps = (dispatch) => {

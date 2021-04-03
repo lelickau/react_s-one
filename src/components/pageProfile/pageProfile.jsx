@@ -4,9 +4,9 @@ import Profile from './profile/profile';
 import PostsWrapper from './posts/postsWrapper';
 
 
+
 const PageProfile = (props) => {
 	console.log(props);
-	
 
     return (
         <div>

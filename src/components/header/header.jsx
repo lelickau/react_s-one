@@ -4,6 +4,7 @@ import logo from '../header/logologo.png';
 import style from './header.module.css';
 
 const Header = (props) => {
+	console.log(props);
 	return (
 		<header className={`${style.header} container`}>
 			<div className={style.logo__box}>

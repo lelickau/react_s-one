@@ -1,9 +1,8 @@
 import React from 'react';
-import * as axios from 'axios';
 import PageProfile from './pageProfile';
 import { connect } from 'react-redux';
-import {setUserProfile} from '../../redux/profileReducer';
-import { withRouter } from 'react-router';
+import {setProfile} from '../../redux/profileReducer';
+import { Redirect, withRouter } from 'react-router';
 
 
 class PageProfileWrapper extends React.Component {
@@ -13,24 +12,25 @@ class PageProfileWrapper extends React.Component {
 		if(!userId) {
 			userId = 2;
 		}
-		console.log(userId);
-		axios.get(`https://social-network.samuraijs.com/api/1.0/profile/${userId}`)
-            .then(response => {
-                this.props.setUserProfile(response.data);
-            });
+		console.log(this.props);
+		this.props.setProfile(userId);
+        
 	}
 
 	render() {
+		//console.log(props.isAuth);
+		if(!this.props.isAuth) return <Redirect to={'/login'} /> ;
 		return (
-			<PageProfile {...this.props} profile={this.props.profile}/>
+			<PageProfile {...this.props} profile={this.props.profile} isAuth={this.props.isAuth}/>
 		)
 	}
 }
 
 let mapStateToProps = (state) => ({
 	profile: state.pageProfile.profile,
+	isAuth: state.auth.isAuth,
 });
 
 let WithUrlDataPageProfileWrapper = withRouter(PageProfileWrapper);
 
-export default connect(mapStateToProps, {setUserProfile})(WithUrlDataPageProfileWrapper);
+export default connect(mapStateToProps, {setProfile})(WithUrlDataPageProfileWrapper);
