@@ -1,4 +1,6 @@
 import { connect } from 'react-redux';
+import { compose } from 'redux';
+import { withAuthRedirect } from '../../hoc/withAuthRedirect';
 import {addMessageActionCreater, updateNewMessageActionCreater} from '../../redux/dialogsReducer';
 import PageDialogs from './pageDialogs';
 
@@ -7,7 +9,6 @@ let mapStateToProps = (state) => {
     //console.log(state);
     return {
         state: state.pageDialogs,
-        isAuth: state.auth.isAuth,
     }
 }
 let mapDispatchToProps = (dispatch) => {
@@ -20,6 +21,8 @@ let mapDispatchToProps = (dispatch) => {
         }
     }
 }
-const PageDialogsWrapper = connect(mapStateToProps, mapDispatchToProps)(PageDialogs);
 
-export default PageDialogsWrapper;
+export default compose(
+    connect(mapStateToProps, mapDispatchToProps),
+    //withAuthRedirect
+)(PageDialogs);

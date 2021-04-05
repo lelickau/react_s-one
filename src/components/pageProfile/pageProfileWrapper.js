@@ -3,6 +3,8 @@ import PageProfile from './pageProfile';
 import { connect } from 'react-redux';
 import {setProfile} from '../../redux/profileReducer';
 import { Redirect, withRouter } from 'react-router';
+import {withAuthRedirect} from '../../hoc/withAuthRedirect';
+import { compose } from 'redux';
 
 
 class PageProfileWrapper extends React.Component {
@@ -12,14 +14,13 @@ class PageProfileWrapper extends React.Component {
 		if(!userId) {
 			userId = 2;
 		}
-		console.log(this.props);
+		//console.log(this.props);
 		this.props.setProfile(userId);
         
 	}
 
 	render() {
 		//console.log(props.isAuth);
-		if(!this.props.isAuth) return <Redirect to={'/login'} /> ;
 		return (
 			<PageProfile {...this.props} profile={this.props.profile} isAuth={this.props.isAuth}/>
 		)
@@ -28,9 +29,15 @@ class PageProfileWrapper extends React.Component {
 
 let mapStateToProps = (state) => ({
 	profile: state.pageProfile.profile,
-	isAuth: state.auth.isAuth,
+	
 });
 
-let WithUrlDataPageProfileWrapper = withRouter(PageProfileWrapper);
+export default compose(
+	connect(mapStateToProps, {setProfile}),
+	withRouter,
+	//withAuthRedirect
+)(PageProfileWrapper);
 
-export default connect(mapStateToProps, {setProfile})(WithUrlDataPageProfileWrapper);
+
+
+

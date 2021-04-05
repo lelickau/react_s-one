@@ -24,7 +24,7 @@ const PageDialogs = (props) => {
 		props.updateNewMessage(message);
 	}
     //console.log(props.isAuth);
-    if(!props.isAuth) return <Redirect to={'/login'} /> ;
+    
 
     return (
         <>
