@@ -6,6 +6,7 @@ import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import ProfileStatus from './profileStatus';
 
 const Profile = (props) => {
+	console.log(props);
 	if(!props.profile) {
 		return(<Preloader/>);
 	}
@@ -75,7 +76,7 @@ const Profile = (props) => {
 						{aboutSearchJob}
 				</div>
 			</div>
-			<ProfileStatus status={'I am ok'}/>
+			<ProfileStatus status={props.status} updateStatus={props.updateStatus} />
 					</div>
 	)
 }

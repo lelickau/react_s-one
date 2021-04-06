@@ -100,3 +100,8 @@ compose(...functions) -- Объединяет функции справа нал
 
 local state -- [profileStatus]
 setState -- асинхронная операция
+
+### 06.04.21 v1.16
+
+http put, local state [profileStatus]
+componentDidUpdate -- особенно полезно, когда операция должна произойти после DOM обновляется, и очередь обновлений очищается.
