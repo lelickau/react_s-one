@@ -2,8 +2,7 @@ import React from 'react';
 import PageProfile from './pageProfile';
 import { connect } from 'react-redux';
 import {setProfile, getStatus, updateStatus} from '../../redux/profileReducer';
-import { Redirect, withRouter } from 'react-router';
-import {withAuthRedirect} from '../../hoc/withAuthRedirect';
+import { withRouter } from 'react-router';
 import { compose } from 'redux';
 
 

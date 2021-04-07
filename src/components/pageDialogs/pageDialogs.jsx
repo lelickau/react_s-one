@@ -2,7 +2,28 @@ import React from 'react';
 import style from './pageDialogs.module.css';
 import DialogItem from './dialogItem/dialogItem';
 import Message from './message/message';
-import { Redirect } from 'react-router';
+import { Field, reduxForm } from 'redux-form';
+
+
+const DialogForm = (props) => {
+    return (
+        <form onSubmit={props.handleSubmit} className={style.form}>
+            <label>
+                <h3>Text..</h3>
+                <Field 
+                    component={'input'}
+                    className={style.input__post} 
+                    name="message" 
+                    placeholder='your message'
+                    
+                />
+            </label>
+            <button className={style.btn__post}>Add</button>
+        </form>
+    )
+}
+
+const DialogReduxForm = reduxForm({form: 'dialogMessage'})(DialogForm);
 
 const PageDialogs = (props) => {
     //console.log(props);
@@ -15,16 +36,18 @@ const PageDialogs = (props) => {
 
     let newMessageItem = React.createRef();
 
-    let addMessage = (e) => {
-        e.preventDefault();
-        props.addMessage();
-    }
-    let onMessageChange = () => {
-		let message = newMessageItem.current.value;
-		props.updateNewMessage(message);
-	}
+    // let addMessage = (e) => {
+    //     e.preventDefault();
+    //     props.addMessage();
+    // }
+    // let onMessageChange = () => {
+	// 	let message = newMessageItem.current.value;
+	// 	props.updateNewMessage(message);
+	// }
     //console.log(props.isAuth);
-    
+    const onSubmit = (formData) => {
+        console.log(formData);
+    }
 
     return (
         <>
@@ -35,21 +58,7 @@ const PageDialogs = (props) => {
             </div>
             <div className={style.messages__box}>
                 {messagesElement}
-                <form className={style.form}>
-                    <label>
-                        <h3>Text..</h3>
-                        <input 
-                            ref={newMessageItem} 
-                            className={style.input__post} 
-                            type="text" 
-                            name="post" 
-                            placeholder='your message'
-                            value={props.state.newMessageText}
-                            onChange={onMessageChange}
-                            />
-                    </label>
-                    <button onClick={addMessage} className={style.btn__post}>Add</button>
-                </form>
+                <DialogReduxForm onSubmit={onSubmit}/>
             </div>
         </div>
         </>
