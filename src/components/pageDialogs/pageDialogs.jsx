@@ -13,7 +13,7 @@ const DialogForm = (props) => {
                 <Field 
                     component={'input'}
                     className={style.input__post} 
-                    name="message" 
+                    name="messageBody" 
                     placeholder='your message'
                     
                 />
@@ -26,7 +26,7 @@ const DialogForm = (props) => {
 const DialogReduxForm = reduxForm({form: 'dialogMessage'})(DialogForm);
 
 const PageDialogs = (props) => {
-    //console.log(props);
+    console.log(props);
 
     let dialogsElement = props.state.dialogs
         .map( d => <DialogItem name={d.name} key={d.id} id={d.id}/> );
@@ -34,19 +34,13 @@ const PageDialogs = (props) => {
     let messagesElement = props.state.messages
         .map( m => <Message text={m.message} key={m.id}/> );
 
-    let newMessageItem = React.createRef();
+    
 
-    // let addMessage = (e) => {
-    //     e.preventDefault();
-    //     props.addMessage();
-    // }
-    // let onMessageChange = () => {
-	// 	let message = newMessageItem.current.value;
-	// 	props.updateNewMessage(message);
-	// }
+    
     //console.log(props.isAuth);
-    const onSubmit = (formData) => {
-        console.log(formData);
+    const addNewMessage = (value) => {
+        console.log(value.messageBody);
+        props.addMessage(value.messageBody);
     }
 
     return (
@@ -58,7 +52,7 @@ const PageDialogs = (props) => {
             </div>
             <div className={style.messages__box}>
                 {messagesElement}
-                <DialogReduxForm onSubmit={onSubmit}/>
+                <DialogReduxForm onSubmit={addNewMessage}/>
             </div>
         </div>
         </>
