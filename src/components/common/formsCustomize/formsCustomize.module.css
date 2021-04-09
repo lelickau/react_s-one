@@ -1,0 +1,29 @@
+.input__post textarea{
+    width: 100%;
+    height: 70px;
+    font-size: 18px;
+    padding: 6px 0 4px 10px;
+    background: #e6e4e4;
+    border: 1px solid transparent;
+    border-radius: 5px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    -webkit-box-shadow: -1px 1px 10px -1px rgba(34, 60, 80, 0.13) inset;
+    -moz-box-shadow: -1px 1px 10px -1px rgba(34, 60, 80, 0.13) inset;
+    box-shadow: -1px 1px 10px -1px rgba(34, 60, 80, 0.13) inset;
+  }
+  .input input {
+    width: 100%;
+    height: 55px;
+    padding: 10px 15px 5px 15px;
+    border: none;
+    border-bottom: 3px solid rgb(13, 29, 58);
+}
+
+.form__customize.error input,
+.form__customize.error textarea{
+    border: 1px solid rgb(192, 22, 22);
+}
+.form__customize.error span{
+    color: rgb(192, 22, 22);
+}

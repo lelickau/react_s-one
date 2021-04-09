@@ -9,7 +9,7 @@
   background-color: #fff;
   }
   
-  .input__post {
+  /* .input__post {
     width: 100%;
     height: 70px;
     font-size: 18px;
@@ -22,7 +22,7 @@
     -webkit-box-shadow: -1px 1px 10px -1px rgba(34, 60, 80, 0.13) inset;
     -moz-box-shadow: -1px 1px 10px -1px rgba(34, 60, 80, 0.13) inset;
     box-shadow: -1px 1px 10px -1px rgba(34, 60, 80, 0.13) inset;
-  }
+  } */
   
   .btn__post {
     display: block;

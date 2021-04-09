@@ -32,6 +32,16 @@ export const authAPI = {
             .then(response => {
                 return response.data;
             })},
+    login(email, password, rememberMe= false) {
+        return instans.post(`auth/login`, {email, password, rememberMe})
+            .then(response => {
+                return response.data;
+            })},
+    logout() {
+        return instans.delete(`auth/login`)
+            .then(response => {
+                return response.data;
+            })},
 }
 
 export const profileAPI = {
