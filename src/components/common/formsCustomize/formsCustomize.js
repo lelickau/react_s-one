@@ -2,7 +2,7 @@ import React from 'react';
 import style from './formsCustomize.module.css';
 
 const FormCustomize = ({input, meta, child, ...props}) => {
-    console.log(props);
+    //console.log(props);
     const hasError = meta.touched && meta.error;
     return (
         <div className={`${style.input__post} ${style.input} ${style.form__customize} ${(hasError ? style.error : '')}`}>

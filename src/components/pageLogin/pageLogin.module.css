@@ -1,6 +1,6 @@
 .box {
     width: 400px;
-    height: 300px;
+    min-height: 300px;
     margin: 0 auto;
     margin-top: 50px;
     -webkit-box-shadow: 0px 1px 8px 0px rgba(34, 60, 80, 0.2);
@@ -51,4 +51,8 @@
     border-radius: 15px;
     box-shadow: 0 5px 10px 0 rgb(0 0 0 / 20%);
     background: linear-gradient(-135deg,#899fd4,#a389d4);
+}
+
+.error {
+    color: red;
 }

@@ -11,7 +11,7 @@ class PageProfileWrapper extends React.Component {
 	componentDidMount(){
 		let userId = this.props.match.params.userId;
 		if(!userId) {
-			userId = 16218;
+			userId = this.props.autarizeuserId;
 		}
 		//console.log(this.props);
 		this.props.setProfile(userId);
@@ -30,6 +30,8 @@ class PageProfileWrapper extends React.Component {
 let mapStateToProps = (state) => ({
 	profile: state.pageProfile.profile,
 	status: state.pageProfile.status,
+	autarizeuserId: state.auth.userId,
+	isAuth: state.auth.isAuth,
 });
 
 export default compose(

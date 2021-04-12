@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import Header from './header';
-import {setAuth} from '../../redux/authReducer';
+import {setAuth, logout} from '../../redux/authReducer';
 
 
 class HeaderWrapper extends React.Component {
@@ -22,4 +22,4 @@ let mapStateToProps = (state) => ({
 	login: state.auth.login,
 });
 
-export default connect(mapStateToProps, {setAuth})(HeaderWrapper);
+export default connect(mapStateToProps, {setAuth, logout})(HeaderWrapper);

@@ -119,3 +119,7 @@ redux-form field validation (валидация, ошибки)
 
 [formsCustomize]
  login и logout api 
+
+### 12.04.21 v1.19
+
+stopSubmit (redux-form)
