@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {Component} from 'react';
 import './components/FortawesomeIcons';
 import './App.css';
 import HeaderWrapper from './components/header/headerWrapper';
@@ -11,32 +11,47 @@ import PageDialogsWrapper from './components/pageDialogs/pageDialogsWrapper';
 import NavBarWrapper from './components/navBar/navBarWrapper';
 import UsersWrapper from './components/pageUsers/usersWrapper';
 import PageLogin from './components/pageLogin/pageLogin';
+import { connect } from 'react-redux';
+import {initializeApp} from './redux/appReducer';
+import { withRouter } from 'react-router';
+import { compose } from 'redux';
+import Preloader from './components/common/preloader/preloader';
 
+class App extends Component {
+	componentDidMount() {
+		this.props.initializeApp();
+	}
 
-
-const App = (props) => {
-	//console.log(props);
-	
-	return (
-		<BrowserRouter>
-		<div className="container">
-			<HeaderWrapper/>
-			<main className="main">
-			<NavBarWrapper/>
-				<div className="content__box">
-					<Route path="/pageProfile/:userId?" render={ () => <PageProfileWrapper />}/>
-					<Route path="/pageDialogs" render={ () => <PageDialogsWrapper/>}/>
-					<Route path="/pageMusic" render={ () => <PageMusic/>}/>
-					<Route path="/pageNews" render={ () => <PageNews/>}/>
-					<Route path="/pageUsers" render={ () => <UsersWrapper/>}/>
-					<Route path="/pageSettings" render={ () => <PageSettings/>}/>
-					<Route path="/login" render={ () => <PageLogin/>}/>
-				</div>
-			</main>
+	render(){
+		if(!this.props.initialized) {
+			return <Preloader/>
+		}
+		return (
 			
-		</div>
-		</BrowserRouter>
-	);
+			<div className="container">
+				<HeaderWrapper/>
+				<main className="main">
+				<NavBarWrapper/>
+					<div className="content__box">
+						<Route path="/pageProfile/:userId?" render={ () => <PageProfileWrapper />}/>
+						<Route path="/pageDialogs" render={ () => <PageDialogsWrapper/>}/>
+						<Route path="/pageMusic" render={ () => <PageMusic/>}/>
+						<Route path="/pageNews" render={ () => <PageNews/>}/>
+						<Route path="/pageUsers" render={ () => <UsersWrapper/>}/>
+						<Route path="/pageSettings" render={ () => <PageSettings/>}/>
+						<Route path="/login" render={ () => <PageLogin/>}/>
+					</div>
+				</main>
+			</div>
+			
+		);
+	}
 }
 
-export default App;
+const mapStateToProps = (state) => ({
+	initialized: state.app.initialized,
+})
+
+export default compose(
+	connect(mapStateToProps, {initializeApp}),withRouter
+	)(App);

@@ -123,3 +123,10 @@ redux-form field validation (валидация, ошибки)
 ### 12.04.21 v1.19
 
 stopSubmit (redux-form)
+
+### 13.04.21 v1.20
+
+инициализация приложения,
+[appReducer.js]
+из функциональной в классовую [App.js]
+селекторы (reselect part 1)

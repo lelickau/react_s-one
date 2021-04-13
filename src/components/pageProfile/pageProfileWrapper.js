@@ -5,13 +5,15 @@ import {setProfile, getStatus, updateStatus} from '../../redux/profileReducer';
 import { withRouter } from 'react-router';
 import { compose } from 'redux';
 
-
 class PageProfileWrapper extends React.Component {
 	
 	componentDidMount(){
 		let userId = this.props.match.params.userId;
 		if(!userId) {
 			userId = this.props.autarizeuserId;
+			if(!userId){
+				this.props.history.push('/login')
+			}
 		}
 		//console.log(this.props);
 		this.props.setProfile(userId);
