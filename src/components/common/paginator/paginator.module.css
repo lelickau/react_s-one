@@ -1,0 +1,16 @@
+.active__page {
+    font-weight: 700;
+  }
+  .pagination__box {
+    padding: 20px;
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .pagination {
+    padding: 5px 10px;
+    cursor: pointer;
+    background-color: rgb(167, 168, 255);
+    margin: 5px;
+    border: 1px solid transparent;
+    border-radius: 5px;
+  }

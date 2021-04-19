@@ -3,6 +3,7 @@ import { profileAPI } from "../api/api";
 const ADD_POST = 'ADD-POST';
 const SET_USER_PROFILE = 'SET-USER-PROFILE';
 const SET_STATUS = 'SET-STATUS';
+const DELETE_POST = 'DELETE-POST';
 
 let initialState = {
     posts: [
@@ -18,7 +19,6 @@ let initialState = {
 const profileReducer = (state = initialState, action) => {
     switch (action.type) {
         case ADD_POST: 
-            
             return {
                 ...state,
                 posts: [
@@ -31,6 +31,10 @@ const profileReducer = (state = initialState, action) => {
                 ],
             }
 
+        case DELETE_POST: 
+        return {...state, posts: state.posts.filter(p => p.id != action.postId)}
+        
+        
         case SET_USER_PROFILE: 
             return {
                 ...state,
@@ -50,34 +54,31 @@ const profileReducer = (state = initialState, action) => {
 }
 
 export let addPostActionCreater = (newPostText) => ({type: ADD_POST, newPostText});
+export let deletePost = (postId) => ({type: DELETE_POST, postId});
 export let setUserProfile = (profile) => ({type: SET_USER_PROFILE, profile});
 export let setUserStatus = (status) => ({type: SET_STATUS, status});
 
 
 export const setProfile = (id) => {
-    return (dispatch) => {
-        profileAPI.getProfile(id).then(data => {
+    return async (dispatch) => {
+        const data = await profileAPI.getProfile(id);
             dispatch(setUserProfile(data));
-        });
     }
 }
 
 export const getStatus = (id) => {
-    return (dispatch) => {
-        profileAPI.getStatus(id).then(data => {
+    return async (dispatch) => {
+        const data = await profileAPI.getStatus(id);
             dispatch(setUserStatus(data));
-        });
     }
 }
 
 export const updateStatus = (status) => {
-    return (dispatch) => {
-        profileAPI.updateStatus(status).then(data => {
+    return async (dispatch) => {
+        const data = await profileAPI.updateStatus(status);
             if (data.resultCode === 0) {
                 dispatch(setUserStatus(status));
             }
-            
-        });
     }
 }
 

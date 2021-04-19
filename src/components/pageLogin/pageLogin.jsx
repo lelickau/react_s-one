@@ -1,30 +1,23 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { Field, reduxForm } from 'redux-form';
+import { reduxForm } from 'redux-form';
 import { maxLengthCreator, required } from '../../utils/validators/valudators';
-import { Input } from '../common/formsCustomize/formsCustomize';
+import {CreateField, Input } from '../common/formsCustomize/formsCustomize';
 import style from './pageLogin.module.css';
 import {login} from '../../redux/authReducer';
 import { Redirect } from 'react-router';
 
-const maxLength = maxLengthCreator(20);
-const LoginForm = (props) => {
-    console.log(props);
+const maxLength = maxLengthCreator(25);
+const LoginForm = ({handleSubmit, error}) => {
     return (
-            <form onSubmit={props.handleSubmit}>
-                <div>
-                    <Field name={'email'} component={Input} placeholder='email' validate={[required, maxLength]} />
-                </div>
-                <div>
-                    <Field name={'password'} component={Input} type='password' placeholder='Password' validate={[required, maxLength]} />
-                </div>
+            <form onSubmit={handleSubmit}>
+                {CreateField('Email', 'email', [required, maxLength], Input, 'text')}
+                {CreateField('Password', 'password', [required, maxLength], Input, 'password')}
                 <div className={style.remember}>
-                    <Field component={'input'} className={style.checkbox} name={'rememberMe'} type='checkbox' validate={[required, maxLength]} />
+                {CreateField(null, 'rememberMe', [required, maxLength], 'input', 'checkbox', {className: `${style.checkbox}`})}
                 <span className={style.diss}>Remember me</span>
                 </div>
-                {
-                    props.error && <span className={style.error}>{props.error}</span>
-                }
+                { error && <span className={style.error}>{error}</span>}
                 <button className={style.btn}>LogIn</button>
             </form>
     )
@@ -32,12 +25,11 @@ const LoginForm = (props) => {
 
 const LoginReduxForm = reduxForm({form: 'login'})(LoginForm);
 
-const PageLogin = (props) => {
-    console.log(props);
+const PageLogin = ({login, isAuth}) => {
     const onSubmit = (formData) => {
-        props.login(formData.email, formData.password, formData.rememberMe);
+        login(formData.email, formData.password, formData.rememberMe);
     }
-    if(props.isAuth) {
+    if(isAuth) {
         return <Redirect to='/pageProfile'/>
     }
     return (

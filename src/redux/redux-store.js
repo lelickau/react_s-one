@@ -22,5 +22,4 @@ let store = createStore(reduser, applyMiddleware(thunkMiddleware));
 //
 window.store = store;
 //
-
 export default store;

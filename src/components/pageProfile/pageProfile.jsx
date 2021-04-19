@@ -6,7 +6,7 @@ import PostsWrapper from './posts/postsWrapper';
 
 
 const PageProfile = (props) => {
-	console.log(props);
+	//console.log(props);
 
     return (
         <div>

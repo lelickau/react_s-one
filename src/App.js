@@ -3,7 +3,7 @@ import './components/FortawesomeIcons';
 import './App.css';
 import HeaderWrapper from './components/header/headerWrapper';
 import PageProfileWrapper from './components/pageProfile/pageProfileWrapper';
-import {BrowserRouter, Route} from 'react-router-dom';
+import { Route} from 'react-router-dom';
 import PageMusic from './components/pageMusic/pageMusic';
 import PageNews from './components/pageNews/pageNews';
 import PageSettings from './components/pageSettings/pageSettings';
