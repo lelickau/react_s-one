@@ -1,16 +1,32 @@
-.active__page {
-    font-weight: 700;
-  }
+
   .pagination__box {
     padding: 20px;
     display: flex;
     flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
   }
   .pagination {
+    color: snow;
     padding: 5px 10px;
     cursor: pointer;
-    background-color: rgb(167, 168, 255);
     margin: 5px;
     border: 1px solid transparent;
     border-radius: 5px;
+    box-shadow: 0 5px 10px 0 rgb(0 0 0 / 20%);
+    background: linear-gradient(
+-135deg
+, #899fd4, #a389d4);
+  }
+  .arrow {
+    background-color: transparent;
+    border: none;
+  }
+
+  .active__page {
+    font-weight: 700;
+    box-shadow: 0 5px 10px 0 rgb(0 0 0 / 20%);
+    background: linear-gradient(
+-135deg
+, #1de9b6, #1dc4e9);
   }

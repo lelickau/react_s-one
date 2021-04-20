@@ -12,7 +12,7 @@ let PageUsers = ({totalUsersCount, pageSize, currentPage, onPageChanged, followi
                 followingIsProgress={followingIsProgress} 
                 setFollow={setFollow} 
                 setUnfollow={setUnfollow} />)}
-        <Paginator totalUsersCount={totalUsersCount} pageSize={pageSize} currentPage={currentPage} onPageChanged={onPageChanged} />
+        <Paginator totalItemsCount={totalUsersCount} pageSize={pageSize} currentPage={currentPage} onPageChanged={onPageChanged} />
         </div>)
         
 }
