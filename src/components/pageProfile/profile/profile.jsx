@@ -3,19 +3,27 @@ import style from './profile.module.css';
 import Preloader from '../../common/preloader/preloader';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import HookProfileStatus from './hookProfileStatus';
+import avatar from './avatar.jpg';
 
-const Profile = ({profile, status, updateStatus}) => {
+const Profile = ({profile, status, updateStatus, isOwner, savePhoto}) => {
 	if(!profile) {
 		return(<Preloader/>);
 	}
 	let searchJob = profile.lookingForAJob;
 	let aboutSearchJob = profile.lookingForAJobDescription;
+
+	const onMainPhotoSelected = (e) => {
+		if( e.target.files.length) {
+			savePhoto(e.target.files[0]);
+		}
+	}
 	
 	return (
 		<div className={style.content}>
 
 			<div className={style.avatar__box}>
-				<img alt='avatar' src={profile.photos.large} className="avatar"/>
+				<img alt='avatar' src={profile.photos.large || avatar} className="avatar"/>
+				{isOwner && <input type='file' onChange={onMainPhotoSelected}/>}
 			</div>
 			<div className={style.about__box}>
 				<h2>{profile.fullName}</h2>
