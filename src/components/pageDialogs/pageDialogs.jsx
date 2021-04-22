@@ -27,7 +27,7 @@ const DialogForm = (props) => {
 const DialogReduxForm = reduxForm({form: 'dialogMessage'})(DialogForm);
 
 const PageDialogs = (props) => {
-    console.log(props);
+    //console.log(props);
 
     let dialogsElement = props.state.dialogs
         .map( d => <DialogItem name={d.name} key={d.id} id={d.id}/> );
@@ -37,7 +37,7 @@ const PageDialogs = (props) => {
 
     //console.log(props.isAuth);
     const addNewMessage = (value) => {
-        console.log(value.messageBody);
+        //console.log(value.messageBody);
         props.addMessage(value.messageBody);
     }
 

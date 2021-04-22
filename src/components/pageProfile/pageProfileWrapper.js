@@ -1,7 +1,7 @@
 import React from 'react';
 import PageProfile from './pageProfile';
 import { connect } from 'react-redux';
-import {setProfile, getStatus, updateStatus, savePhoto} from '../../redux/profileReducer';
+import {setProfile, getStatus, updateStatus, savePhoto, saveProfile} from '../../redux/profileReducer';
 import { withRouter } from 'react-router';
 import { compose } from 'redux';
 
@@ -15,7 +15,7 @@ class PageProfileWrapper extends React.Component {
 				this.props.history.push('/login')
 			}
 		}
-		console.log(this.props);
+		//console.log(this.props);
 		this.props.setProfile(userId);
 		this.props.getStatus(userId);
 	}
@@ -24,7 +24,7 @@ class PageProfileWrapper extends React.Component {
 	}
 
 	componentDidUpdate(prevProps, prevState) {
-        if (this.props.match.params.userId != prevProps.match.params.userId) {
+        if (this.props.match.params.userId !== prevProps.match.params.userId) {
             this.refreshProfile();
         }
     }
@@ -45,7 +45,7 @@ let mapStateToProps = (state) => ({
 });
 
 export default compose(
-	connect(mapStateToProps, {setProfile, getStatus, updateStatus, savePhoto}),
+	connect(mapStateToProps, {setProfile, getStatus, updateStatus, savePhoto, saveProfile}),
 	withRouter,
 	//withAuthRedirect
 )(PageProfileWrapper);

@@ -1,4 +1,4 @@
-import React, {Component, Suspense } from 'react';
+import React, {Component} from 'react';
 import './components/FortawesomeIcons';
 import './App.css';
 import HeaderWrapper from './components/header/headerWrapper';
