@@ -36,9 +36,14 @@
   display: block;
   width: 30px;
 }
+.about {
+  padding-right: 10px;
+  font-weight: 700;
+}
 .about__itom {
   display: flex;
   margin-right: 5px;
+  
 }
 /**/
 .input__wrapper {
@@ -79,7 +84,12 @@
   width: 100%;
   max-width: 290px;
   height: 60px;
-  background: #3f4d67;
+  border-radius: 15px;
+  box-shadow: 0 5px 10px 0 rgb(0 0 0 / 20%);
+  background: linear-gradient( 
+-135deg
+,#899fd4,#a389d4);
+border: none;
   color: #fff;
   font-size: 13px;
   font-weight: 400;
@@ -92,11 +102,25 @@
   -webkit-box-pack: start;
   -ms-flex-pack: start;
   justify-content: flex-start;
-  border-radius: 3px;
   cursor: pointer;
   margin: 0 auto;
 }
-
+/**/
 .error {
   color: red;
+}
+
+/**/
+.btn_edit {
+  margin-top: 20px;
+  font-size: 22px;
+  color: #fff;
+  border-radius: 15px;
+    box-shadow: 0 5px 10px 0 rgb(0 0 0 / 20%);
+    background: linear-gradient( 
+-135deg
+ ,#899fd4,#a389d4);
+ border: none;
+ width: 55px;
+ height: 45px;
 }

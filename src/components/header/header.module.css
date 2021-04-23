@@ -23,9 +23,24 @@
 .login__link {
   margin-top: 10px;
   margin-left: 10px;
+  text-align: center;
 }
   .login__link a{
     font-weight: 300;
     font-size: 18px;
     color: #fff;
+    
   }
+  /**/
+.btn_edit {
+  font-size: 18px;
+  color: #fff;
+  border-radius: 15px;
+    box-shadow: 0 5px 10px 0 rgb(0 0 0 / 20%);
+    background: linear-gradient( 
+-135deg
+ ,#899fd4,#a389d4);
+ border: none;
+ width: 45px;
+ height: 35px;
+}

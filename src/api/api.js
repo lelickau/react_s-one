@@ -32,8 +32,8 @@ export const authAPI = {
             .then(response => {
                 return response.data;
             })},
-    login(email, password, rememberMe = false) {
-        return instans.post(`auth/login`, {email, password, rememberMe});
+    login(email, password, rememberMe = false, captcha = null) {
+        return instans.post(`auth/login`, {email, password, rememberMe, captcha});
     },
     logout() {
         return instans.delete(`auth/login`)
@@ -41,6 +41,14 @@ export const authAPI = {
                 return response.data;
             })},
 }
+
+export const securityAPI = {
+    getCaptchaUrl() {
+        return instans.get(`security/get-captcha-url`);
+        },
+    
+}
+
 
 export const profileAPI = {
     getProfile(userId) {
